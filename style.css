@@ -1,0 +1,269 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.search{
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.search img{
+    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+.search .content{
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+.search h1 {
+    font-size: 3rem;
+    /* Larger size for emphasis */
+    font-weight: 900;
+    /* Extra bold for attention */
+    text-transform: uppercase;
+    /* Converts text to uppercase for impact */
+    letter-spacing: 3px;
+    /* Stylish spacing */
+    color: #ffcc00;
+    /* Bright golden yellow for vibrancy */
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    /* Gradient text */
+    -webkit-background-clip: text;
+    /* Ensures gradient only affects text */
+    -webkit-text-fill-color: transparent;
+    /* Makes background clip visible */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+    /* Adds dramatic depth */
+    animation: bounceIn 1.5s ease-out forwards;
+    /* Fun bounce animation */
+    opacity: 0;
+    /* Initial state for animation */
+}
+
+.search p {
+    font-size: 1.8rem;
+    /* Noticeable size */
+    font-weight: 500;
+    /* Balanced weight */
+    margin-top: 12px;
+    /* Extra spacing for clarity */
+    color: #00d2ff;
+    /* Bright cyan for contrast */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    /* Subtle depth effect */
+    font-style: italic;
+    /* Gives an elegant touch */
+    animation: fadeSlideIn 1.8s ease-out forwards;
+    /* Combines fade and slide */
+    opacity: 0;
+    /* Initial state for animation */
+}
+
+/* Keyframes for Animations */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8) translateY(-50px);
+        /* Starts smaller and higher */
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.1) translateY(10px);
+        /* Slight overshoot */
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+        /* Settles in place */
+        opacity: 1;
+    }
+}
+
+@keyframes fadeSlideIn {
+    0% {
+        transform: translateY(30px);
+        /* Starts lower */
+        opacity: 0;
+        /* Invisible */
+    }
+
+    100% {
+        transform: translateY(0);
+        /* Moves to its original position */
+        opacity: 1;
+        /* Fully visible */
+    }
+}
+.search .search-box{
+    height: 55px;
+    margin: 45px 0;
+}
+.search-box i{
+    position: absolute;
+    left: 10px;
+    top: 70%;
+    font-size: 1.4rem;
+    color: #8d8d8d;
+    transform: translateY(-50%);
+}
+input, button, i{
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+.search-box input{
+    width: 100%;
+    height: 100%;
+    font-size: 1.1rem;
+    padding-left: 55px;    
+}
+.gallery{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gallery .images{
+    columns: 5 340px;
+    gap:15px;
+}
+.images .card{
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    list-style: none;
+    margin-bottom: 14px;
+    border-radius: 4px;
+}
+.images .card .details {
+    position: absolute;
+    bottom: -100px;
+    color:#fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    transition: bottom 0.1s ease;
+    background: linear-gradient(to top, rgba(0,0,0,0.7),transparent);
+}
+.images .card:hover .details {
+    bottom: 0;
+}
+.photographer {
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+.card .details button {
+    cursor: pointer;
+    padding: 3px 8px;
+    font-size: 1.1rem;
+    background:#fff;
+
+}
+.photographer i {
+    cursor: pointer;
+    font-size: 1.4rem;
+    margin-right: 10px;
+}
+.details .photographer span {
+    font-size: 1.05rem;
+}
+.images img {
+    width: 100%;
+}
+.gallery .load-more {
+    margin: 50px 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 12px 27px;
+    background: #8a6cff;
+}
+.gallery .load-more.disabled{
+    opacity: 0.6;
+    pointer-events: none;
+}
+.lightbox {
+    position: fixed;
+    z-index: 5;
+    display: none;
+    
+    background: rgba(0,0,0,0.65);
+    width: 100%;
+    height: 100%;
+}
+.lightbox.show {
+    display: block;
+}
+.lightbox .wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    background:#8a6cff;
+    max-width: 850px;
+    border-radius: 5px;
+    padding: 20px;
+    transform: translate(-50%,-50%);
+}
+header .photographer i {
+    font-size: 1.7rem;
+}
+header .photographer {
+    display: flex;
+    color: #333;
+    margin-top:25px;
+    justify-content: center;
+}
+header .photographer span {
+    font-size: 1.2rem;
+}
+header .buttons i {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+    background: #8a6cff;
+    font-size: 1.2rem;
+    display: inline-block;
+}
+.buttons i:last-child {
+    margin-left: 10px;
+    background: #6c757d;
+}
+.wrapper header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.preview-img {
+    display: flex;
+    margin-top: 25px;
+    justify-content: center;
+}
+.wrapper .preview-img .img {
+    max-height: 65vh;
+    max-width: 90vh;
+}
+.preview-img .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+
+
+
